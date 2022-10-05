@@ -77,8 +77,9 @@
     <script type="module">
       // ------------------------------------------------------
       // Developer Code
-      import { getSchoolByName } from './getSchool.js'
-      const apiKey = 'btUPAy8ib69sVyLyw75zwR0fhza8jJEvzacPRc5U'
+      import { CollegeScorecard } from '/src/getSchool.js'
+      const apiKey = 'Ut5BZyyIh31isIltEa29VVarPuct43jHaxEYj1TB'
+      const school = new CollegeScorecard(apiKey)
 
       // Get Element refererences
       const search = document.getElementById('search')
@@ -99,7 +100,7 @@
         e.preventDefault()
 
         const searchName = search.value
-        getSchoolByName(searchName).then((results) => {
+        school.getSchoolByName(searchName).then((results) => {
           if (!results) {
             let error = document.createElement("p")
             error.innerText = 'No results'
