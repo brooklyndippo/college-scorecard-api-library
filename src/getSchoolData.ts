@@ -1,9 +1,19 @@
+type SchoolData = {
+    id: number;
+    name: string;
+    city: string;
+    state: string;
+    website: string;
+}
+
 class CollegeScorecard {
-    constructor(apiKey) {
+    apiKey: string;
+    
+    constructor(apiKey : string) {
         this.apiKey = apiKey
     }
 
-    async getSchoolByName(schoolName) {
+    async getSchoolByName(schoolName : string) : Promise<SchoolData[] | null > {
         const path = `http://api.data.gov/ed/collegescorecard/v1/schools?school.name=${schoolName}&api_key=${this.apiKey}`
         try {
             const res = await fetch(path)
@@ -23,11 +33,10 @@ class CollegeScorecard {
                     name: school.name,
                     city: school.city,
                     state: school.state,
-                    zip: school.zip,
                     website: school.school_url
                 })
             } 
-            
+            console.log(schoolResults)
             return schoolResults
         } catch(error) {
             console.log(error.message)
