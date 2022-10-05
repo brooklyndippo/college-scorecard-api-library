@@ -4,12 +4,13 @@
   "description": "A library that makes it easier to query the College Scorecard API",
   "main": "getSchool.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --detectOpenHandles",
     "build": "webpack --config webpack.config.js"
   },
   "author": "Brooklyn Weber",
   "license": "ISC",
   "devDependencies": {
+    "node-fetch": "^2.6.7",
     "ts-loader": "^9.4.1",
     "typescript": "^4.8.4",
     "webpack": "^5.74.0",
